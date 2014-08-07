@@ -1,0 +1,72 @@
+def create_with_sh(command, path)
+  begin
+    sh "#{command} > #{path}"
+  rescue
+    sh "rm -f #{path}"
+    raise
+  end
+end
+
+task :rspec do
+  sh 'bundle exec rspec spec/*_spec.rb'
+end
+
+file 'build/ast_to_bytecode_compiler.js' =>
+    'lib/ast_to_bytecode_compiler.rb' do |task|
+  mkdir_p 'build'
+  command = %W[
+    bundle exec opal
+      -c
+      -I lib
+      -- ast_to_bytecode_compiler
+  ].join(' ')
+  create_with_sh command, task.name
+end
+
+file 'build/bytecode_interpreter.js' =>
+    'lib/bytecode_interpreter.rb' do |task|
+  mkdir_p 'build'
+  command = %W[
+    bundle exec opal
+      -c
+      -I lib
+      -- bytecode_interpreter
+  ].join(' ')
+  create_with_sh command, task.name
+end
+
+file 'build/lexer.js' => 'lib/lexer.rb' do |task|
+  mkdir_p 'build'
+  command = %W[
+    bundle exec opal
+      -c
+      -I lib
+      -- lexer
+  ].join(' ')
+  create_with_sh command, task.name
+end
+
+file 'build/bytecode_spool.js' => 'lib/bytecode_spool.rb' do |task|
+  mkdir_p 'build'
+  command = %W[
+    bundle exec opal
+      -c
+      -I lib
+      -- bytecode_spool
+  ].join(' ')
+  create_with_sh command, task.name
+end
+
+file 'build/opal.js' => 'lib/opal.js.erb' do |task|
+  mkdir_p 'build'
+  command = 'bundle exec erb lib/opal.js.erb'
+  create_with_sh command, task.name
+end
+
+task :default => %w[
+  build/ast_to_bytecode_compiler.js
+  build/bytecode_interpreter.js
+  build/bytecode_spool.js
+  build/lexer.js
+  build/opal.js
+]
