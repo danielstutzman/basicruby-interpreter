@@ -1,5 +1,5 @@
 require 'opal'
-require './ast_to_bytecode_compiler'
+require './lib/ast_to_bytecode_compiler'
 
 def compile ruby_code
   parser = Opal::Parser.new

@@ -1,7 +1,7 @@
 require 'opal'
-require './ast_to_bytecode_compiler'
-require './bytecode_interpreter'
-require './rspec_ruby_runner'
+require './lib/ast_to_bytecode_compiler'
+require './lib/bytecode_interpreter'
+require './spec/rspec_ruby_runner'
 
 $main = self
 $runner = RspecRubyRunner.new

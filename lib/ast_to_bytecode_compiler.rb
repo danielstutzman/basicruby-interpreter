@@ -270,7 +270,7 @@ class AstToBytecodeCompiler
     bytecodes.push [:start_call]
     bytecodes.push [:result, str]
     bytecodes.push [:arg]
-    bytecodes.push [:result, '<<']
+    bytecodes.push [:result, 'append']
     bytecodes.push [:make_symbol]
     bytecodes.push [:arg]
     bytecodes.push [:result_nil]

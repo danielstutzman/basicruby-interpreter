@@ -1,6 +1,6 @@
-require './bytecode_interpreter.rb'
-require './bytecode_spool.rb'
 require 'opal'
+require './lib/bytecode_interpreter.rb'
+require './lib/bytecode_spool.rb'
 
 class RspecRubyRunner
   def initialize

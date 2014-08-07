@@ -53,7 +53,7 @@ class <<$stderr
 end
 
 class String
-  def <<(*args)
+  def append(*args)
     self + args.map { |arg| "#{arg}" }.join
   end
 end
