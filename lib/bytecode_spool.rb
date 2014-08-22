@@ -81,7 +81,8 @@ class BytecodeSpool
       when 'GOSUB'
         label = args[0]
         @counter_stack.push @counter
-        @counter = @label_to_counter[label] or raise "Can't find label #{label}"      when 'RETURN'
+        @counter = @label_to_counter[label] or raise "Can't find label #{label}"
+      when 'RETURN'
         @counter = @counter_stack.pop
     end
   end
