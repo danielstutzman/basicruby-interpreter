@@ -57,22 +57,23 @@ file 'build/bytecode_spool.js' => 'lib/bytecode_spool.rb' do |task|
   create_with_sh command, task.name
 end
 
-file 'opal.js' => 'lib/opal.js.erb' do |task|
-  mkdir_p 'build'
+file 'dist/opal.js' => 'lib/opal.js.erb' do |task|
+  mkdir_p 'dist'
   command = 'bundle exec erb lib/opal.js.erb'
   create_with_sh command, task.name
 end
 
-file 'basicruby-interpreter.js' => %W[
+file 'dist/basicruby-interpreter.js' => %W[
   build/ast_to_bytecode_compiler.js
   build/bytecode_interpreter.js
   build/bytecode_spool.js
   build/lexer.js
 ] do |task|
+  mkdir_p 'dist'
   create_with_sh "cat #{task.prerequisites.join(' ')}", task.name
 end
 
 task :default => %w[
-  basicruby-interpreter.js
-  opal.js
+  dist/basicruby-interpreter.js
+  dist/opal.js
 ]

@@ -1,5 +1,4 @@
 .*.swp
 .DS_Store
 /build
-/basicruby-interpreter.js
-/opal.js
+/dist
