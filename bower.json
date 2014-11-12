@@ -1,6 +1,6 @@
 {
   "name": "basicruby-interpreter",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/danielstutzman/basicruby-interpreter",
   "authors": [
     "Daniel Stutzman <dtstutz@gmail.com>"
