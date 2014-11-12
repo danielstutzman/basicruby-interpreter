@@ -1,6 +1,6 @@
 require 'opal'
-require_relative './ast_to_bytecode_compiler'
-require_relative './bytecode_interpreter'
+require_relative '../lib/ast_to_bytecode_compiler'
+require_relative '../lib/bytecode_interpreter'
 require_relative './rspec_ruby_runner'
 
 $main = self

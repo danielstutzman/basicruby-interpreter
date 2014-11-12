@@ -1,6 +1,6 @@
-require_relative './ast_to_bytecode_compiler.rb'
-require_relative './bytecode_interpreter.rb'
-require_relative './bytecode_spool.rb'
+require_relative '../lib/ast_to_bytecode_compiler.rb'
+require_relative '../lib/bytecode_interpreter.rb'
+require_relative '../lib/bytecode_spool.rb'
 require 'opal'
 
 class RspecRubyRunner
