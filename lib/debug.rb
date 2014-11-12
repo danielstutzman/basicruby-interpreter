@@ -1,9 +1,9 @@
 require 'readline'
 require 'opal'
 require 'pp'
-require './ast_to_bytecode_compiler'
-require './bytecode_interpreter'
-require './bytecode_spool'
+require_relative './ast_to_bytecode_compiler'
+require_relative './bytecode_interpreter'
+require_relative './bytecode_spool'
 
 path = ARGV[0] or raise "First argument: path to ruby source file"
 ruby_code = File.read(path)
