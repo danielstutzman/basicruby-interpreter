@@ -10,13 +10,6 @@
   ],
   "private": true,
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "lib",
-    "spec",
-    "Gemfile",
-    "Gemfile.lock",
-    "Rakefile"
+    "**/.*"
   ]
 }
