@@ -1,6 +1,7 @@
+require_relative './ast_to_bytecode_compiler.rb'
+require_relative './bytecode_interpreter.rb'
+require_relative './bytecode_spool.rb'
 require 'opal'
-require './lib/bytecode_interpreter.rb'
-require './lib/bytecode_spool.rb'
 
 class RspecRubyRunner
   def initialize
@@ -9,13 +10,14 @@ class RspecRubyRunner
     compiler = AstToBytecodeCompiler.new
     @bytecodes1 = compiler.compile_program 'Runtime', sexp1
   end
-  def output_from ruby_code
+  def output_from ruby_code, input=nil
     parser = Opal::Parser.new
     compiler = AstToBytecodeCompiler.new
     sexp2 = parser.parse ruby_code
     bytecodes2 = compiler.compile_program 'TestCode', sexp2
     spool = BytecodeSpool.new @bytecodes1 + [[:discard]] + bytecodes2
     interpreter = BytecodeInterpreter.new
+    input_lines = (input || '').split("\n")
 
     spool.queue_run_until 'DONE'
     begin
@@ -23,6 +25,9 @@ class RspecRubyRunner
         bytecode = spool.get_next_bytecode
         break if bytecode.nil?
 
+        if interpreter.is_accepting_input?
+          interpreter.set_input "#{input_lines.shift}\n"
+        end
         spool_command = interpreter.interpret bytecode
         spool.do_command *spool_command if spool_command
       end
