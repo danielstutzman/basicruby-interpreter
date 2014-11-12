@@ -1,9 +1,11 @@
 UNNAMED_BLOCK = :__unnamed_block
 
 if RUBY_PLATFORM == 'opal'
+  # gets is not defined for opal, so define it
   def gets
   end
 
+  # redefine puts to handle trailing newlines like MRI does
   def puts *args
     if args.size > 0
       $stdout.write args.map { |arg|
