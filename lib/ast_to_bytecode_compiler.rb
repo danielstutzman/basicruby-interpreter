@@ -486,6 +486,10 @@ class AstToBytecodeCompiler
   def compile_while sexp
     _, condition, block = sexp
     bytecodes = []
+    if sexp.source == nil
+      raise "Error: running an uncustomized version of Opal.  " +
+        "Try with bundle exec instead."
+    end
     bytecodes.push [:token] + sexp.source
     label_start = unique_label 'start', condition
     label_end = unique_label 'end', condition
