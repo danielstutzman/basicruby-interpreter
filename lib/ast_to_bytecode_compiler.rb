@@ -380,6 +380,9 @@ class AstToBytecodeCompiler
     _, object, method_name, args, block = sexp
 
     bytecodes = []
+
+    bytecodes.push [:token] + sexp.source
+
     label_after_return = unique_label 'after_return', sexp
     bytecodes.push [:goto, label_after_return]
 

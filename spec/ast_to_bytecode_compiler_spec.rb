@@ -132,7 +132,8 @@ end
 
   it 'compiles def f; 3; end' do
     compile('def f; 3; end').should == [
-      [:position, "test", 1, 0], [:goto, "after_return_test_1_0"],
+      [:position, "test", 1, 0], [:token, 1, 0],
+      [:goto, "after_return_test_1_0"],
       [:label, "start_test_1_0"],
       [:args, 0, 0], [:to_vars, -1, -1], [:discard],
       [:position, "test", 1, 7], [:token, 1, 7], [:result, 3],
