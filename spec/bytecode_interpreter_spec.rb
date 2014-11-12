@@ -12,6 +12,7 @@ end
 
 describe BytecodeInterpreter, '#run' do
   it 'runs puts 3' do
+raise 'Break the build'
     output_of('puts 3').should == "3\n"
   end
   it 'runs puts 3; puts 4' do
