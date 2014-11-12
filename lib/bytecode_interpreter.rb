@@ -162,7 +162,8 @@ class BytecodeInterpreter
         nil
       when :make_proc
         result = Proc.new { |*args| ['RedirectMethod', bytecode[1]] }
-        result.instance_variable_set '@env', @vars_stack.last
+        result.instance_variable_set '@env',
+          @vars_stack.last.reject { |name, value| name == :__method_name }
         result.instance_variable_set '@defined_in', @method_stack.last
         result.instance_variable_set '@is_yield', false
         result_is result
