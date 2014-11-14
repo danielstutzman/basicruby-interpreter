@@ -85,7 +85,8 @@ class AstToBytecodeCompiler
       when :irange   then compile_range sexp, false
       when :erange   then compile_range sexp, true
       when :for      then compile_for sexp
-      else no "s-exp with head #{sexp[0]}"
+      else no "s-exp with head #{sexp[0]}" +
+        (sexp.source ? " on line #{sexp.source[0]}" : '')
     end
   end
 
