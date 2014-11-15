@@ -486,4 +486,9 @@ end").should == "8\n8\n8\n9\n9\n9\n"
   it 'accepts hash literals' do
     output_of('p({1=>2, 3=>4})').should == "{1=>2, 3=>4}\n"
   end
+
+  it 'supports the times method' do
+    output_of('3.times { |i| puts i }').should == "0\n1\n2\n"
+  end
+
 end
