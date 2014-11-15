@@ -7,6 +7,10 @@ def create_with_sh(command, path)
   end
 end
 
+task :clean do
+  sh 'rm -rf build dist'
+end
+
 task :rspec do
   sh 'bundle exec rspec spec/*_spec.rb'
 end
