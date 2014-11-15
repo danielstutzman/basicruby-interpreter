@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/danielstutzman/opal.git
-  revision: c9fe30788df296a007c0df8c5ef1f186672b5f9a
+  revision: 1bd4b2f99d2f788fa98c2a897ab1ad7180d82835
   branch: patches_to_20140504
   specs:
     opal (0.7.0.dev)
