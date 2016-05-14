@@ -1,0 +1,5 @@
+{
+  "name": "basicruby-interpreter",
+  "version": "0.0.2",
+  "main": "dist/basicruby-interpreter.js"
+}

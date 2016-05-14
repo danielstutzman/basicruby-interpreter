@@ -61,12 +61,6 @@ file 'build/bytecode_spool.js' => 'lib/bytecode_spool.rb' do |task|
   create_with_sh command, task.name
 end
 
-file 'dist/opal.js' => 'lib/opal.js.erb' do |task|
-  mkdir_p 'dist'
-  command = 'bundle exec erb lib/opal.js.erb'
-  create_with_sh command, task.name
-end
-
 file 'dist/basicruby-interpreter.js' => %W[
   build/ast_to_bytecode_compiler.js
   build/bytecode_interpreter.js
@@ -79,5 +73,4 @@ end
 
 task :default => %w[
   dist/basicruby-interpreter.js
-  dist/opal.js
 ]
