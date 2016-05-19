@@ -491,4 +491,7 @@ end").should == "8\n8\n8\n9\n9\n9\n"
     output_of('3.times { |i| puts i }').should == "0\n1\n2\n"
   end
 
+  it 'escapes # in string literal starting with #{' do
+    output_of('p "\#{"').should == "\"" + "\\" + "\#{" + "\"" + "\n"
+  end
 end

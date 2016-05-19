@@ -1,20 +1,20 @@
 GIT
   remote: git://github.com/danielstutzman/opal.git
-  revision: 1bd4b2f99d2f788fa98c2a897ab1ad7180d82835
-  branch: patches_to_20140504
+  revision: 85a03e987bcb91576da1bb0d20158645b0dc510f
+  ref: 85a03e9
   specs:
     opal (0.7.0.dev)
       source_map
-      sprockets
+      sprockets (~> 2.12.1)
 
 GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
     hike (1.2.3)
-    json (1.8.1)
-    multi_json (1.10.1)
-    rack (1.5.2)
+    json (1.8.3)
+    multi_json (1.12.1)
+    rack (1.6.4)
     rake (10.3.2)
     rspec (3.0.0)
       rspec-core (~> 3.0.0)
@@ -30,7 +30,7 @@ GEM
     rspec-support (3.0.3)
     source_map (3.0.1)
       json
-    sprockets (2.12.1)
+    sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
