@@ -494,4 +494,8 @@ end").should == "8\n8\n8\n9\n9\n9\n"
   it 'escapes # in string literal starting with #{' do
     output_of('p "\#{"').should == "\"" + "\\" + "\#{" + "\"" + "\n"
   end
+
+  it "should return nil from puts" do
+    output_of('p(puts(3))').should == "3\nnil\n"
+  end
 end

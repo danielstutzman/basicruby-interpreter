@@ -728,7 +728,7 @@ if (bytecode == null) bytecode = nil;
 
       args = $slice.call(arguments, 0);
       if (args.$size()['$>'](0)) {
-        return $gvars.stdout.$write(($a = ($b = args).$map, $a._p = (TMP_1 = function(arg){var self = TMP_1._s || this, $a, arg_to_s = nil;
+        $gvars.stdout.$write(($a = ($b = args).$map, $a._p = (TMP_1 = function(arg){var self = TMP_1._s || this, $a, arg_to_s = nil;
 if (arg == null) arg = nil;
         arg_to_s = "" + (arg);
           return arg_to_s['$+'](((function() {if ((($a = arg_to_s['$end_with?']("\n")) !== nil && (!$a._isBoolean || $a == true))) {
@@ -737,8 +737,9 @@ if (arg == null) arg = nil;
             return "\n"
           }; return nil; })()));}, TMP_1._s = self, TMP_1), $a).call($b).$join())
         } else {
-        return $gvars.stdout.$write("\n")
+        $gvars.stdout.$write("\n")
       };
+      return nil;
     };
     $opal.Object._proto.$p = function(args) {
       var $a, $b, TMP_2, self = this, $case = nil;

@@ -15,6 +15,7 @@ if RUBY_PLATFORM == 'opal'
     else
       $stdout.write "\n"
     end
+    nil
   end
 
   def p *args
